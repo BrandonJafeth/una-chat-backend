@@ -3,6 +3,7 @@ import { chatController } from '../controllers/chat.controller'
 import { validationMiddleware } from '../middlewares/validation.middleware'
 import { sanitizationMiddleware } from '../middlewares/sanitization.middleware'
 import { messageRateLimiter } from '../middlewares/rateLimit.middleware'
+import { authMiddleware } from '../middlewares/auth.middleware'
 import { messageSchema } from '../utils/validators'
 import { asyncHandler } from '../utils/asyncHandler'
 
@@ -14,8 +15,11 @@ const router = Router()
  *   post:
  *     summary: Send a new chat message
  *     tags: [Chat]
+ *     security:
+ *       - bearerAuth: []
  *     description: |
  *       Send a new message to the chat. The message will be:
+ *       - Authenticated via Auth0 JWT token
  *       - Validated for length and format
  *       - Sanitized to prevent XSS attacks
  *       - Rate limited (30 requests per minute)
@@ -55,6 +59,17 @@ const router = Router()
  *                 code: VALIDATION_ERROR
  *                 message: Invalid username length
  *                 timestamp: '2025-10-18T12:00:00.000Z'
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *             example:
+ *               success: false
+ *               error:
+ *                 code: UNAUTHORIZED
+ *                 message: Invalid or missing authentication token
  *       429:
  *         description: Too many requests
  *         content:
@@ -68,6 +83,7 @@ const router = Router()
  */
 router.post(
   '/messages',
+  ...authMiddleware,
   messageRateLimiter,
   sanitizationMiddleware(),
   validationMiddleware(messageSchema),

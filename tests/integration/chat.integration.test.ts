@@ -105,7 +105,6 @@ describe('GET /api/chat/messages/history', () => {
   it('should return empty history initially', async () => {
     const response = await request(app).get('/api/chat/messages/history')
     const body = response.body as ResponseBody
-
     expect(response.status).toBe(200)
     expect(body.success).toBe(true)
     expect(Array.isArray(body.data)).toBe(true)

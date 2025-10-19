@@ -12,6 +12,9 @@ interface EnvironmentConfig {
   rateLimitMaxRequests: number
   maxRequestSize: string
   logLevel: string
+  auth0Domain: string
+  auth0Audience: string
+  auth0Issuer: string
 }
 
 const getEnvironmentConfig = (): EnvironmentConfig => {
@@ -37,6 +40,10 @@ const getEnvironmentConfig = (): EnvironmentConfig => {
   const maxRequestSize = process.env.MAX_REQUEST_SIZE || '10mb'
   const logLevel = process.env.LOG_LEVEL || 'info'
 
+  const auth0Domain = process.env.AUTH0_DOMAIN || ''
+  const auth0Audience = process.env.AUTH0_AUDIENCE || ''
+  const auth0Issuer = process.env.AUTH0_ISSUER || ''
+
   return {
     nodeEnv,
     port,
@@ -47,6 +54,9 @@ const getEnvironmentConfig = (): EnvironmentConfig => {
     rateLimitMaxRequests,
     maxRequestSize,
     logLevel,
+    auth0Domain,
+    auth0Audience,
+    auth0Issuer,
   }
 }
 
