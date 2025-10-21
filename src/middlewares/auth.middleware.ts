@@ -7,13 +7,14 @@ export const authMiddleware = [
   (err: Error, req: Request, res: Response, next: NextFunction) => {
     if (err.name === 'UnauthorizedError') {
       loggerService.warn(`Authentication failed: ${err.message}`)
-      return res.status(401).json({
+      res.status(401).json({
         success: false,
         error: {
           code: 'UNAUTHORIZED',
           message: 'Invalid or missing authentication token',
         },
       })
+      return
     }
     next(err)
   },
