@@ -11,16 +11,50 @@ interface MessageRequest {
 class ChatController {
   sendMessage(req: Request, res: Response, next: NextFunction): void {
     try {
+      // TEMP DEBUG: log incoming request headers and body to help diagnose 500 errors
+      try {
+        loggerService.debug('sendMessage incoming request', {
+          headers: req.headers,
+          body: req.body,
+        })
+      } catch (dbgErr) {
+        // ignore debug logging failures
+      }
+
       const { nombre, mensaje, color } = req.body as MessageRequest
+
+      // Defensive validation: ensure required fields are present and correct type
+      if (typeof nombre !== 'string' || typeof mensaje !== 'string') {
+        loggerService.warn('Invalid sendMessage request body', { body: req.body })
+        res.status(400).json({
+          success: false,
+          error: {
+            code: 'VALIDATION_ERROR',
+            message: 'Invalid request body: nombre and mensaje are required strings',
+            timestamp: new Date().toISOString(),
+          },
+        })
+        return
+      }
 
       loggerService.info('Message received', {
         user: nombre,
         messageLength: mensaje.length,
       })
 
-      const processedMessage = messageService.processMessage(
-        JSON.stringify({ nombre, mensaje, color })
-      )
+      let processedMessage
+      try {
+        processedMessage = messageService.processMessage(
+          JSON.stringify({ nombre, mensaje, color })
+        )
+      } catch (procErr) {
+        loggerService.error('messageService.processMessage threw', {
+          error: procErr instanceof Error ? procErr.message : String(procErr),
+          body: req.body,
+        })
+        next(procErr as Error)
+        return
+      }
 
       res.status(200).json({
         success: true,

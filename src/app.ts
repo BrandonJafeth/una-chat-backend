@@ -32,7 +32,7 @@ const createApp = (): Express => {
 
   app.use('/api', routes)
 
-  app.get('/', (req, res) => {
+  app.get('/', (req: any, res: { sendFile: (arg0: string) => void }) => {
     res.sendFile(path.join(__dirname, '../public/index.html'))
   })
 
