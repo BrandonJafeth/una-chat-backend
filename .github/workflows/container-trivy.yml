@@ -1,0 +1,73 @@
+name: Build, Scan (Trivy) and Push - Backend
+
+on:
+  push:
+    branches: [ "main", "development" ]
+  pull_request:
+    branches: [ "main", "development" ]
+  workflow_dispatch:
+
+jobs:
+  build_scan_push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write   # necesario si subimos SARIF
+
+    env:
+      IMAGE_LOCAL: unachat:development
+      DOCKERHUB_REPO: unachat/unachat
+      IMAGE_TAG: development
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Docker image (local)
+        run: |
+          docker build -t $IMAGE_LOCAL .
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          docker tag $IMAGE_LOCAL unachat:sha-$SHORT_SHA
+
+      - name: Scan image with Trivy (gate: HIGH,CRITICAL)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.IMAGE_LOCAL }}
+          format: table
+          exit-code: 1
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          scanners: 'vuln'
+          cache: true
+          timeout: 10m
+
+      - name: Trivy SARIF (non-blocking)
+        if: always()
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.IMAGE_LOCAL }}
+          format: sarif
+          output: trivy.sarif
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          scanners: 'vuln'
+          cache: true
+
+      - name: Upload SARIF to GitHub Security
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: trivy.sarif
+
+      - name: Docker login
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push image to Docker Hub
+        run: |
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          docker tag $IMAGE_LOCAL $DOCKERHUB_REPO:$IMAGE_TAG
+          docker tag $IMAGE_LOCAL $DOCKERHUB_REPO:sha-$SHORT
