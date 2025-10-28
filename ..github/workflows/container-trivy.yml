@@ -1,0 +1,64 @@
+name: Build, Scan (Trivy) and Push - Backend
+
+on:
+  push:
+    branches: [ "main", "development" ]
+  pull_request:
+    branches: [ "main", "development" ]
+  workflow_dispatch:
+
+jobs:
+  build_scan_push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write   # para subir SARIF (opcional)
+
+    env:
+      # Imagen local (solo dentro del runner)
+      IMAGE_LOCAL: unachat:development
+      # Nombre del repo remoto en Docker Hub
+      DOCKERHUB_REPO: unachat/unachat
+      IMAGE_TAG: development
+
+    steps:
+      # 1) Traer el código
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2) Build de la imagen local (aún no se publica)
+      - name: Build Docker image (local)
+        run: |
+          docker build -t $IMAGE_LOCAL .
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          docker tag $IMAGE_LOCAL unachat:sha-$SHORT_SHA
+
+      # 3) Trivy: escanear y FALLAR si hay HIGH/CRITICAL
+      - name: Scan image with Trivy (gate: HIGH,CRITICAL)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.IMAGE_LOCAL }}
+          format: table
+          exit-code: 1
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true        # ponlo en false si quieres ser más estricto
+          vuln-type: 'os,library'
+          scanners: 'vuln'
+          cache: true
+          timeout: 10m
+
+      # 4) Login en Docker Hub (usa tus secrets)
+      - name: Docker login
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}   # debe ser: unachat
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # 5) Retag y push a Docker Hub (development + sha)
+      - name: Push image to Docker Hub
+        run: |
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          docker tag $IMAGE_LOCAL $DOCKERHUB_REPO:$IMAGE_TAG
+          docker tag $IMAGE_LOCAL $DOCKERHUB_REPO:sha-$SHORT_SHA
+          docker push $DOCKERHUB_REPO:$IMAGE_TAG
+          docker push $DOCKERHUB_REPO:sha-$SHORT_SHA
