@@ -15,44 +15,45 @@ jobs:
       security-events: write
 
     env:
-      IMAGE_LOCAL: unachat:development
       DOCKERHUB_REPO: unachat/unachat
       IMAGE_TAG: development
+      IMAGE: unachat/unachat:development   # <— siempre 'development'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build Docker image (local)
+      # Build directo con el nombre/etiqueta remota (development)
+      - name: Build Docker image (development)
         run: |
-          docker build -t $IMAGE_LOCAL .
+          docker build -t $IMAGE .
           SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-          docker tag $IMAGE_LOCAL unachat:sha-$SHORT_SHA
+          docker tag $IMAGE $DOCKERHUB_REPO:sha-$SHORT_SHA
 
+      # Trivy: bloquea solo si hay CRITICAL (como pediste)
       - name: Scan image with Trivy
         uses: aquasecurity/trivy-action@0.20.0
         with:
-          image-ref: ${{ env.IMAGE_LOCAL }}
+          image-ref: ${{ env.IMAGE }}
           format: table
           exit-code: 1
           severity: CRITICAL
           ignore-unfixed: true
           vuln-type: os,library
           scanners: vuln
-          cache: true
           timeout: 10m
 
+      # SARIF para Security (opcional)
       - name: Trivy SARIF
         if: always()
         uses: aquasecurity/trivy-action@0.20.0
         with:
-          image-ref: ${{ env.IMAGE_LOCAL }}
+          image-ref: ${{ env.IMAGE }}
           format: sarif
           output: trivy.sarif
           ignore-unfixed: true
           vuln-type: os,library
           scanners: vuln
-          cache: true
 
       - name: Upload SARIF to GitHub Security
         if: always()
@@ -60,16 +61,15 @@ jobs:
         with:
           sarif_file: trivy.sarif
 
+      # Push solo si pasó el escaneo
       - name: Docker login
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Push image to Docker Hub
+      - name: Push image to Docker Hub (development + sha)
         run: |
           SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-          docker tag $IMAGE_LOCAL $DOCKERHUB_REPO:$IMAGE_TAG
-          docker tag $IMAGE_LOCAL $DOCKERHUB_REPO:sha-$SHORT_SHA
-          docker push $DOCKERHUB_REPO:$IMAGE_TAG
+          docker push $IMAGE
           docker push $DOCKERHUB_REPO:sha-$SHORT_SHA
