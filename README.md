@@ -1,7 +1,6 @@
 # 🔒 UNA Chat Backend - Secure Implementation# 🔒 UNA Chat Backend - SSDLC Implementation# 🔒 UNA Chat Backend - SSDLC Implementation# Express.js Hello World with TypeScript
 
 
-
 [![Security-First](https://img.shields.io/badge/approach-security%20first-brightgreen)](./AGENTS.MD)
 
 [![SOLID Principles](https://img.shields.io/badge/architecture-SOLID-blue)](./AGENTS.MD)
