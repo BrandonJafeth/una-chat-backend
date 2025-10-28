@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      security-events: write   # necesario si subimos SARIF
+      security-events: write
 
     env:
       IMAGE_LOCAL: unachat:development
@@ -29,29 +29,29 @@ jobs:
           SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
           docker tag $IMAGE_LOCAL unachat:sha-$SHORT_SHA
 
-      - name: Scan image with Trivy (gate: HIGH,CRITICAL)
-        uses: aquasecurity/trivy-action@master
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@0.20.0
         with:
           image-ref: ${{ env.IMAGE_LOCAL }}
           format: table
           exit-code: 1
           severity: HIGH,CRITICAL
           ignore-unfixed: true
-          vuln-type: 'os,library'
-          scanners: 'vuln'
+          vuln-type: os,library
+          scanners: vuln
           cache: true
           timeout: 10m
 
-      - name: Trivy SARIF (non-blocking)
+      - name: Trivy SARIF
         if: always()
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.20.0
         with:
           image-ref: ${{ env.IMAGE_LOCAL }}
           format: sarif
           output: trivy.sarif
           ignore-unfixed: true
-          vuln-type: 'os,library'
-          scanners: 'vuln'
+          vuln-type: os,library
+          scanners: vuln
           cache: true
 
       - name: Upload SARIF to GitHub Security
@@ -70,4 +70,6 @@ jobs:
         run: |
           SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
           docker tag $IMAGE_LOCAL $DOCKERHUB_REPO:$IMAGE_TAG
-          docker tag $IMAGE_LOCAL $DOCKERHUB_REPO:sha-$SHORT
+          docker tag $IMAGE_LOCAL $DOCKERHUB_REPO:sha-$SHORT_SHA
+          docker push $DOCKERHUB_REPO:$IMAGE_TAG
+          docker push $DOCKERHUB_REPO:sha-$SHORT_SHA
