@@ -1,0 +1,139 @@
+name: Backend SSDLC (Lint + Tests + Snyk + Build)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main", "develop"]
+  pull_request:
+    branches: ["main", "develop"]
+
+permissions:
+  contents: read
+
+jobs:
+  # 1) LINT
+  lint:
+    name: Lint (ESLint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint   # debe fallar con warnings (--max-warnings=0)
+
+  # 2) TESTS
+  test:
+    name: Unit Tests (Jest)
+    runs-on: ubuntu-latest
+    needs: [lint]           # ⛔ solo corre si Lint pasa
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run test:ci
+
+  # 3) SNYK
+  snyk:
+    name: Snyk Security (SAST + SCA + optional IaC/Container)
+    runs-on: ubuntu-latest
+    needs: [test]           # ⛔ solo corre si Tests pasan
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Setup Snyk CLI
+        uses: snyk/actions/setup@v4
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      # --- Snyk Code (SAST) ---
+      - name: Snyk Code test (SAST)
+        run: snyk code test --severity-threshold=high --sarif-file-output=snyk-code.sarif
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: Upload SARIF to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: snyk-code.sarif
+
+      # --- Snyk Open Source (SCA) ---
+      - name: Snyk Open Source test (SCA)
+        run: snyk test --severity-threshold=high --fail-on=all --all-projects
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: Snyk Open Source monitor
+        run: snyk monitor --all-projects
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      # --- IaC (condicional) ---
+      - name: Detect IaC files
+        id: detect_iac
+        run: |
+          shopt -s globstar nullglob
+          files=( **/*.tf **/*.tfvars **/*.yaml **/*.yml )
+          if [ ${#files[@]} -gt 0 ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Snyk IaC test and report
+        if: steps.detect_iac.outputs.found == 'true'
+        run: snyk iac test --severity-threshold=high --report
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      # --- Container (condicional) ---
+      - name: Check Dockerfile
+        id: dockerfile
+        run: |
+          if [ -f Dockerfile ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build a Docker image
+        if: steps.dockerfile.outputs.present == 'true'
+        run: docker build -t backend-under-test .
+
+      - name: Snyk Container monitor
+        if: steps.dockerfile.outputs.present == 'true'
+        run: snyk container monitor backend-under-test --file=Dockerfile
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+  # 4) BUILD
+  build:
+    name: Build (tsc)
+    runs-on: ubuntu-latest
+    needs: [snyk]           # ✅ solo si todo lo anterior pasó
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
