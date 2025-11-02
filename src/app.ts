@@ -1,13 +1,13 @@
 import express, { Express } from 'express'
 import cors from 'cors'
 import swaggerUi from 'swagger-ui-express'
+import * as Sentry from '@sentry/node'
 import { helmetConfig, corsOptions } from './config/security.config'
 import { globalRateLimiter } from './middlewares/rateLimit.middleware'
 import { errorHandler } from './middlewares/errorHandler.middleware'
 import { environmentConfig } from './config/environment'
 import { swaggerSpec } from './config/swagger.config'
 import routes from './routes'
-import path from 'path'
 
 const createApp = (): Express => {
   const app = express()
@@ -28,13 +28,21 @@ const createApp = (): Express => {
     },
   }))
 
-  app.use(express.static(path.join(__dirname, '../public')))
-
   app.use('/api', routes)
 
-  app.get('/', (req: any, res: { sendFile: (arg0: string) => void }) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'))
+  app.get('/', (req, res) => {
+    res.redirect('/api-docs')
   })
+
+  app.get("/debug-sentry", function mainHandler(req, res) {
+    // Send a log before throwing the error
+    Sentry.logger.info('User triggered test error', {
+      action: 'test_error_endpoint',
+    });
+    throw new Error("My first Sentry error!");
+  })
+
+  Sentry.setupExpressErrorHandler(app)
 
   app.use(errorHandler)
 
