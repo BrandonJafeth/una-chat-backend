@@ -2,9 +2,9 @@ name: Build, Scan (Grype) and Push - Backend
 
 on:
   push:
-    branches: [ "main", "development" ]
+    branches: ["main", "development"]
   pull_request:
-    branches: [ "main", "development" ]
+    branches: ["main", "development"]
   workflow_dispatch:
 
 jobs:
@@ -60,8 +60,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Push image (development and sha)
+      - name: Push image (development)
         run: |
-          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          echo "Pushing development image: $IMAGE"
           docker push $IMAGE
-          docker push $DOCKERHUB_REPO:sha-$SHORT_SHA
