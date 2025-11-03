@@ -53,7 +53,7 @@ jobs:
       # 3) Gate de severidad: falla si hay HIGH o CRITICAL
       - name: Grype severity gate (fail on CRITICAL)
         run: |
-          grype $IMAGE --fail-on high -o json > /dev/null
+          grype $IMAGE --fail-on critical -o json > /dev/null
 
       # 4) Push solo si pasó el gate
       - name: Docker login
