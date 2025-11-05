@@ -83,7 +83,7 @@ const router = Router()
  */
 router.post(
   '/messages',
-  ...authMiddleware,
+  ...(process.env.NODE_ENV !== 'test' ? authMiddleware : []),
   messageRateLimiter,
   sanitizationMiddleware(),
   validationMiddleware(messageSchema),

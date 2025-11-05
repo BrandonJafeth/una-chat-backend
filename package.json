@@ -9,6 +9,7 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "test": "jest --coverage",
+    "test:ci": "jest --coverage --ci --maxWorkers=2",
     "test:watch": "jest --watch",
     "test:unit": "jest --testPathPattern=tests/unit",
     "test:integration": "jest --testPathPattern=tests/integration",
