@@ -34,7 +34,7 @@ const createApp = (): Express => {
     res.redirect('/api-docs')
   })
 
-  app.get("/debug-sentry", function mainHandler(req, res) {
+  app.get("/debug-sentry", function mainHandler(_req, _res) {
     // Send a log before throwing the error
     Sentry.logger.info('User triggered test error', {
       action: 'test_error_endpoint',

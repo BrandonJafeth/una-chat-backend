@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express'
 import { loggerService } from '../services/logger.service'
 
 class HealthController {
-  async check(req: Request, res: Response, next: NextFunction): Promise<void> {
+  check(_req: Request, res: Response, next: NextFunction): void {
     try {
       const healthCheck = {
         uptime: process.uptime(),
