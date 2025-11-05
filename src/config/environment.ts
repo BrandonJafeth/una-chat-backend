@@ -37,7 +37,7 @@ const getEnvironmentConfig = (): EnvironmentConfig => {
   const nodeEnv = process.env.NODE_ENV || 'development'
   const port = parsePort(process.env.PORT)
   const allowedOrigins = parseAllowedOrigins(process.env.ALLOWED_ORIGINS)
-  const jwtSecret = process.env.JWT_SECRET || 'your-secret-key-change-in-production'
+  const jwtSecret = process.env.JWT_SECRET || ''
   const jwtExpiresIn = process.env.JWT_EXPIRES_IN || '15m'
   const rateLimitWindowMs = parseRateLimitWindow(process.env.RATE_LIMIT_WINDOW_MS)
   const rateLimitMaxRequests = parseRateLimitMax(process.env.RATE_LIMIT_MAX_REQUESTS)
