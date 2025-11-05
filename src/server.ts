@@ -6,15 +6,6 @@ import { environmentConfig } from './config/environment'
 import { socketConfig } from './config/socket.config'
 import { setupChatHandlers } from './sockets/chat.handler'
 import { loggerService } from './services/logger.service'
-import dotenv from "dotenv";
-dotenv.config();
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`API running on http://localhost:${PORT}`);
-});
 
 const server = http.createServer(app)
 const io = new Server(server, socketConfig)
