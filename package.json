@@ -13,7 +13,13 @@
     "test:unit": "jest --testPathPattern=tests/unit",
     "test:integration": "jest --testPathPattern=tests/integration",
     "lint": "eslint . --ext .ts --max-warnings=0",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "lint:fix": "eslint . --ext .ts --fix",
+    "semgrep": "semgrep --config=auto src/",
+    "semgrep:security": "semgrep --config=p/owasp-top-ten --config=p/nodejs src/",
+    "semgrep:custom": "semgrep --config=.semgrep.yml src/",
+    "semgrep:ci": "semgrep --config=auto src/ --json -o semgrep-report.json",
+    "semgrep:watch": "semgrep --config=.semgrep.yml src/ --watch",
+    "check-security": "npm run lint && npm run semgrep:custom && npm test"
   },
   "dependencies": {
     "@sentry/node": "^10.22.0",
@@ -26,6 +32,7 @@
     "helmet": "^8.1.0",
     "isomorphic-dompurify": "^2.9.0",
     "jwks-rsa": "^3.2.0",
+    "semgrep": "^0.0.1",
     "socket.io": "^4.7.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",

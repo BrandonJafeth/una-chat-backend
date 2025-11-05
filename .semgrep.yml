@@ -1,0 +1,105 @@
+rules:
+  # 1. Detectar secrets hardcodeados
+  - id: hardcoded-jwt-secret
+    pattern: |
+      jwt.sign(..., "$SECRET", ...)
+    message: "JWT secret should come from environment variables"
+    severity: ERROR
+    languages: [typescript, javascript]
+    paths:
+      include:
+        - src/
+
+  # 2. Detectar uso de eval() (XSS)
+  - id: dangerous-eval-usage
+    pattern: eval(...)
+    message: "Usage of eval() is dangerous - XSS/Code Injection risk"
+    severity: ERROR
+    languages: [typescript, javascript]
+
+  # 3. Detectar SQL injection potencial
+  - id: sql-injection-risk
+    pattern: |
+      db.query($SQL + $INPUT)
+    message: "Potential SQL injection - use parameterized queries"
+    severity: ERROR
+    languages: [typescript, javascript]
+
+  # 4. Detectar console.log en producción
+  - id: console-log-production
+    pattern: console.log(...)
+    message: "Remove console.log statements in production code"
+    severity: WARNING
+    languages: [typescript, javascript]
+    paths:
+      include:
+        - src/
+      exclude:
+        - tests/
+
+  # 5. Detectar passwords hardcodeados
+  - id: hardcoded-password
+    pattern-either:
+      - pattern: password = "$VALUE"
+      - pattern: PASSWORD = "$VALUE"
+      - pattern: secret = "$VALUE"
+      - pattern: SECRET = "$VALUE"
+    message: "Possible hardcoded password or secret detected"
+    severity: ERROR
+    languages: [typescript, javascript]
+
+  # 6. Detectar uso directo de process.env
+  - id: direct-process-env-usage
+    pattern: process.env.$VAR
+    message: "Use environmentConfig instead of direct process.env access"
+    severity: WARNING
+    languages: [typescript, javascript]
+    paths:
+      include:
+        - src/
+      exclude:
+        - "**/src/config/environment.ts"
+
+  # 7. Detectar CORS inseguro
+  - id: insecure-cors-wildcard
+    pattern: |
+      cors({
+        ...,
+        origin: "*",
+        ...
+      })
+    message: "CORS configured with wildcard (*) - security risk"
+    severity: ERROR
+    languages: [typescript, javascript]
+
+  # 8. Detectar rate limiting débil (simplificado)
+  - id: weak-rate-limiting
+    pattern: |
+      rateLimit({
+        ...,
+        max: $MAX,
+        ...
+      })
+    message: "Verify rate limit configuration - ensure max value is appropriate for your use case"
+    severity: WARNING
+    languages: [typescript, javascript]
+
+  # 9. Detectar acceso a req.body sin validación previa
+  - id: missing-input-validation
+    pattern: |
+      router.$METHOD($PATH, async ($REQ, $RES) => {
+        ...
+        $REQ.body
+        ...
+      })
+    message: "Route accesses req.body - ensure validation middleware is applied"
+    severity: WARNING
+    languages: [typescript, javascript]
+
+  # 10. Detectar ANY type en TypeScript
+  - id: typescript-any-type
+    pattern: |
+      const $VAR: any = ...
+    message: "Avoid using 'any' type - use specific types"
+    severity: WARNING
+    languages: [typescript]

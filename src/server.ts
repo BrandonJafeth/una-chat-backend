@@ -31,6 +31,13 @@ const startServer = (): void => {
     loggerService.info('- URL validation and sanitization')
     loggerService.info('- Input validation with Zod')
     loggerService.info('- XSS protection')
+    loggerService.info('')
+    loggerService.info('Static Analysis and Security Scanning Tools:')
+    loggerService.info('- Semgrep: Local SAST scanning with custom rules (.semgrep.yml)')
+    loggerService.info('- Snyk: External CI/CD vulnerability scanning')
+    loggerService.info('- ESLint: Code quality and security linting')
+    loggerService.info('- TypeScript: Type safety validation')
+    loggerService.info('Run "npm run check-security" for comprehensive security scan')
   })
 }
 
