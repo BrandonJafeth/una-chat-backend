@@ -1,0 +1,30 @@
+# Snyk (https://snyk.io) policy file
+# Documentation: https://docs.snyk.io/scan-with-snyk/policies/the-.snyk-file
+
+# Global exclusions for all Snyk scans
+exclude:
+  global:
+    # Dependencies
+    - node_modules/**
+    
+    # Build outputs
+    - dist/**
+    - build/**
+    
+    # Test coverage
+    - coverage/**
+    
+    # Git directory
+    - .git/**
+    
+    # Logs
+    - logs/**
+    - '*.log'
+
+# Patch section for fixing vulnerabilities
+patch: {}
+
+# Ignore section for known issues
+ignore: {}
+
+version: v1.22.1
