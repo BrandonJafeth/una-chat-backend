@@ -122,7 +122,7 @@ npm run check-security
 ### Paso 1: Mostrar Vulnerabilidades Existentes
 
 ```powershell
-# Ejecutar escaneo personalizados
+# Ejecutar escaneo personalizadoss
 npm run semgrep:custom
 ```
 
