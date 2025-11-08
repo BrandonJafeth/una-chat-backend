@@ -43,7 +43,8 @@ export const setupChatHandlers = (io: Server): void => {
 
         const processedMessage = messageService.processMessage(msg)
 
-        io.emit(SOCKET_EVENTS.MESSAGE_RECEIVED, JSON.stringify(processedMessage))
+        // ✅ Enviar el objeto directamente, NO como string JSON
+        io.emit(SOCKET_EVENTS.MESSAGE_RECEIVED, processedMessage)
 
         loggerService.info('Message broadcast', {
           socketId: socket.id,
