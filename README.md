@@ -1,19 +1,46 @@
-# 🔒 UNA Chat Backend - Secure Implementation# 🔒 UNA Chat Backend - SSDLC Implementation# 🔒 UNA Chat Backend - SSDLC Implementation# Express.js Hello World with TypeScript
+# 🔒 UNA Chat Backend - SSDLC Implementation# 🔒 UNA Chat Backend - SSDLC Implementation
 
 
-[![Security-First](https://img.shields.io/badge/approach-security%20first-brightgreen)](./AGENTS.MD)
 
-[![SOLID Principles](https://img.shields.io/badge/architecture-SOLID-blue)](./AGENTS.MD)
+[![Security-First](https://img.shields.io/badge/approach-security%20first-brightgreen)](./AGENTS.MD)[![Security-First](https://img.shields.io/badge/approach-security%20first-brightgreen)](./AGENTS.MD)
 
-[![Test-First Development](https://img.shields.io/badge/methodology-TDD%2FBDD-yellow)](./AGENTS.MD)[![Security-First](https://img.shields.io/badge/approach-security%20first-brightgreen)](./AGENTS.MD)
+[![SOLID Principles](https://img.shields.io/badge/architecture-SOLID-blue)](./AGENTS.MD)[![SOLID Principles](https://img.shields.io/badge/architecture-SOLID-blue)](./AGENTS.MD)
 
-[![Coverage](https://img.shields.io/badge/coverage-87%25-green)]()
+[![Test-First Development](https://img.shields.io/badge/methodology-TDD%2FBDD-yellow)](./AGENTS.MD)[![Test-First Development](https://img.shields.io/badge/methodology-TDD%2FBDD-yellow)](./AGENTS.MD)
 
-[![SOLID Principles](https://img.shields.io/badge/architecture-SOLID-blue)](./AGENTS.MD)
+[![Coverage](https://img.shields.io/badge/coverage-87%25-green)]()[![Coverage](https://img.shields.io/badge/coverage-87%25-green)]()
 
-Backend seguro para aplicación de chat en tiempo real con autenticación, validación y sanitización siguiendo **SSDLC (Secure Software Development Lifecycle)**.
 
-[![Test-First Development](https://img.shields.io/badge/methodology-TDD%2FBDD-yellow)](./AGENTS.MD)[![Security-First](https://img.shields.io/badge/approach-security%20first-brightgreen)](./AGENTS.MD)Este es un proyecto de Express.js configurado con TypeScript basado en el ejemplo Hello World oficial de Express.
+
+Backend seguro para aplicación de chat en tiempo real con autenticación, validación y sanitización siguiendo **SSDLC (Secure Software Development Lifecycle)**.Backend seguro para aplicación de chat en tiempo real con autenticación, validación y sanitización siguiendo **SSDLC (Secure Software Development Lifecycle)**.
+
+
+
+------
+
+
+
+## 📚 Descripción del Proyecto##  Descripción del Proyecto
+
+
+
+Este proyecto es parte de un curso de **Ciberseguridad - Implementación Segura de Aplicaciones** en la Universidad Nacional de Costa Rica (UNA). El objetivo principal es desarrollar una aplicación fullstack con máxima calidad, seguridad y mantenibilidad.Este proyecto es parte de un curso de **Ciberseguridad - Implementación Segura de Aplicaciones** en la Universidad Nacional de Costa Rica (UNA). El objetivo principal es desarrollar una aplicación fullstack con máxima calidad, seguridad y mantenibilidad.
+
+
+
+### Puntos de Enfoque### Puntos de Enfoque
+
+
+
+1. **SBOM (Software Bill of Materials)** - Documentación de dependencias1. **SBOM (Software Bill of Materials)** - Documentación de dependencias
+
+2. **Análisis Estático de Seguridad** - Escaneo local de vulnerabilidades
+
+3. **Validación de Código** - Linting, formatting, testing
+
+4. **Seguridad en Desarrollo** - Validación, sanitización, rate limiting
+
+### Access Points2. **Análisis Estático de Seguridad** - Escaneo local de vulnerabilidades
 
 ---
 
@@ -21,15 +48,15 @@ Backend seguro para aplicación de chat en tiempo real con autenticación, valid
 
 ## 🚀 Quick Start
 
-Implementación de un backend seguro para aplicaciones de chat en tiempo real siguiendo **SSDLC (Secure Software Development Lifecycle)** con énfasis en seguridad, calidad de código y buenas prácticas de desarrollo.[![SOLID Principles](https://img.shields.io/badge/architecture-SOLID-blue)](./AGENTS.MD)
+- **API Base:** http://localhost:5000/api3. **Validación de Código** - Linting, formatting, testing## 📚 Descripción del Proyecto```
 
 ```bash
 
-# Install dependencies
+# Install dependencies- **Swagger Docs:** http://localhost:5000/api-docs
 
 npm install
 
-## 📚 Descripción del Proyecto[![Test-First Development](https://img.shields.io/badge/methodology-TDD%2FBDD-yellow)](./AGENTS.MD)## Instalación
+- **Health Check:** http://localhost:5000/api/health4. **Seguridad en Desarrollo** - Validación, sanitización, rate limiting
 
 # Run development server
 
@@ -37,7 +64,7 @@ npm run dev
 
 
 
-# Run tests with coverageEste proyecto es parte de un curso de **Ciberseguridad - Implementación Segura de Aplicaciones** en la Universidad Nacional de Costa Rica (UNA). El objetivo principal es desarrollar una aplicación fullstack con máxima calidad, seguridad y mantenibilidad.
+# Run tests with coverage---
 
 npm test
 
@@ -45,7 +72,7 @@ npm test
 
 # Build for production
 
-npm run build### Puntos de EnfoqueImplementación de un backend seguro para aplicaciones de chat en tiempo real siguiendo **SSDLC (Secure Software Development Lifecycle)** con énfasis en seguridad, calidad de código y buenas prácticas de desarrollo.```bash
+npm run build## 📚 API Documentation (Swagger)---
 
 
 
@@ -53,673 +80,1293 @@ npm run build### Puntos de EnfoqueImplementación de un backend seguro para apli
 
 npm start
 
-```1. **SBOM (Software Bill of Materials)** - Documentación de dependenciasnpm install
+```Interactive API documentation available at:Este proyecto es parte de un curso de **Ciberseguridad - Implementación Segura de Aplicaciones** en la Universidad Nacional de Costa Rica (UNA). El objetivo principal es desarrollar una aplicación fullstack con máxima calidad, seguridad y mantenibilidad.## Desarrollo
 
 
 
-### Access Points2. **Análisis Estático de Seguridad** - Escaneo local de vulnerabilidades
+### Access Points
 
 
 
-- **API Base:** http://localhost:5000/api3. **Validación de Código** - Linting, formatting, testing## 📚 Descripción del Proyecto```
+- **API Base:** http://localhost:5000/api```## 🏗️ Arquitectura
 
 - **Swagger Docs:** http://localhost:5000/api-docs
 
-- **Health Check:** http://localhost:5000/api/health4. **Seguridad en Desarrollo** - Validación, sanitización, rate limiting
+- **Health Check:** http://localhost:5000/api/healthhttp://localhost:5000/api-docs
 
 
 
----
+---```
 
 
 
-## 📚 API Documentation (Swagger)---
+## 📦 SBOM - Software Bill of Materials
 
 
 
-Interactive API documentation available at:Este proyecto es parte de un curso de **Ciberseguridad - Implementación Segura de Aplicaciones** en la Universidad Nacional de Costa Rica (UNA). El objetivo principal es desarrollar una aplicación fullstack con máxima calidad, seguridad y mantenibilidad.## Desarrollo
+**Última actualización:** 8 de Noviembre, 2025 | **Versión:** 1.1### Swagger Features### Backend (Node.js + Express)
 
 
 
-```## 🏗️ Arquitectura
+### 📊 Resumen Ejecutivo✅ Test endpoints directly in browser  
 
-http://localhost:5000/api-docs
+
+
+- ✅ **Total de dependencias:** 38 (20 frontend + 18 backend)✅ View request/response schemas  - **Patrón:** Arquitectura por Capas (Layered Architecture)### Puntos de EnfoquePara ejecutar en modo desarrollo con recarga automática:
+
+- 🚨 **Componentes críticos:** 1 (requiere acción inmediata)
+
+- 🔶 **Componentes de alto riesgo:** 7 (con controles implementados)✅ Automatic data validation  
+
+- ⚠️ **Componentes de riesgo medio:** 6 (monitoreo requerido)
+
+- ✅ **Componentes de bajo riesgo:** 24✅ Copy cURL and code examples  - **API:** REST + WebSockets (Socket.IO)
+
+
+
+### 🎯 Matriz de Riesgos - Componentes Críticos
+
+
+
+**Escala:** Riesgo Inherente (R) = Probabilidad (P) × Impacto (I)  📖 See [SWAGGER_DOCS.md](./SWAGGER_DOCS.md) for detailed documentation.- **Autenticación:** Auth0 + JWT
+
+**Umbrales:** 1-4=Bajo ✅ | 5-9=Medio ⚠️ | 10-15=Alto 🔶 | 16-25=Crítico 🚨
+
+
+
+#### 🚨 Riesgo Crítico (R ≥ 16)
+
+---- **Base de Datos:** Flexible (MongoDB, PostgreSQL, etc.)
+
+| Componente | Versión | P | I | R | Estado | Acción |
+
+|------------|---------|---|---|---|--------|--------|
+
+| **semgrep** | 0.0.1 | 5 | 4 | **20** | 🚨 Crítico | **ACTUALIZAR URGENTE** a v1.50+ |
+
+## 🛡️ Security Features1. **SBOM (Software Bill of Materials)** - Documentación de dependencias```bash
+
+**Justificación:** Versión extremadamente desactualizada. No detecta vulnerabilidades modernas. Reglas obsoletas.  
+
+**Alternativas:** Snyk, SonarQube, ESLint Security Plugins
+
+
+
+#### 🔶 Alto Riesgo (R = 10-15)| Feature | Implementation |### Frontend (React + Vite)
+
+
+
+| Componente | Versión | Licencia | P | I | R | Controles Implementados ||---------|---------------|
+
+|------------|---------|----------|---|---|---|-------------------------|
+
+| **xss** | 1.0.14 | MIT | 3 | 5 | **15** | ⚠️ Poco mantenimiento<br>✅ Respaldo con isomorphic-dompurify<br>📌 **Recomendación:** Migrar a DOMPurify || **HTTP Security Headers** | Helmet with CSP |- **Patrón:** Arquitectura Híbrida (Feature-Based + Component-Based)2. **Análisis Estático de Seguridad** - Escaneo local de vulnerabilidadesnpm run dev
+
+| **express** | 4.18.2 | MIT | 2 | 5 | **10** | ✅ Helmet configurado<br>✅ Rate limiting activo<br>✅ Input validation (Zod) |
+
+| **socket.io** | 4.7.2 | MIT | 2 | 5 | **10** | ✅ Auth en handshake<br>✅ Rate limiting por socket<br>✅ Message validation || **CORS** | Restricted origins |
+
+| **socket.io-client** | 4.8.1 | MIT | 2 | 5 | **10** | ✅ TLS obligatorio<br>✅ Sanitización<br>✅ Timeout configurado |
+
+| **@auth0/auth0-react** | 2.8.0 | MIT | 2 | 5 | **10** | ✅ OAuth2/OIDC<br>✅ Token rotation<br>✅ Rate limiting login || **Rate Limiting** | Global: 100 req/min, Messages: 30 req/min |- **State Management:** TanStack Query + Context API
+
+| **express-jwt** | 8.5.1 | MIT | 2 | 5 | **10** | ✅ RS256 algorithm<br>✅ Issuer validation<br>✅ Token exp: 15min |
+
+| **jwks-rsa** | 3.2.0 | MIT | 2 | 5 | **10** | ✅ Key caching<br>✅ Issuer validation || **Input Validation** | Zod schemas |
+
+
+
+#### ⚠️ Riesgo Medio (R = 5-9)| **XSS Protection** | Sanitization with xss library |- **Comunicación Real-Time:** Socket.IO Client3. **Validación de Código** - Linting, formatting, testing```
+
+
+
+| Componente | Versión | R | Observaciones || **URL Validation** | Whitelisted domains for media |
+
+|------------|---------|---|---------------|
+
+| **cors** | 2.8.5 | **8** | ✅ Origins específicos configurados<br>❌ No usar wildcard (*) || **Error Handling** | Centralized, no detail exposure |- **Validación:** Zod + React Hook Form
+
+| **axios** | 1.12.2 | **8** | ✅ URL validation<br>✅ Timeout: 10s<br>⚠️ Historial: SSRF en v0.21.x (resuelto) |
+
+| **react** | 19.1.1 | **5** | ✅ Meta/Facebook mantiene<br>✅ Sin CVEs conocidos || **Logging** | Winston with security events |
+
+| **dompurify** | 3.3.0 | **5** | ✅ Cure53 (firma de seguridad)<br>✅ Apache-2.0/MPL-2.0 |
+
+| **isomorphic-dompurify** | 2.9.0 | **5** | ✅ Server-side sanitization<br>📌 Preferir sobre xss |4. **Seguridad en Desarrollo** - Validación, sanitización, rate limiting
+
+
+
+### 📋 Inventario de Dependencias---
+
+
+
+#### Backend (18 dependencias)---
+
+
+
+**🔒 Seguridad**## 📦 Tech Stack
+
+```json
+
+{## Build
+
+  "helmet": "8.1.0",                   // Security headers
+
+  "cors": "2.8.5",                     // CORS middleware### Runtime & Framework
+
+  "express-rate-limit": "8.1.0",       // Rate limiting
+
+  "xss": "1.0.14",                     // XSS prevention (⚠️ reemplazar)- **Node.js** 18+ with TypeScript 5.1+## 🚀 Quick Start
+
+  "isomorphic-dompurify": "2.9.0",     // Sanitización mejorada
+
+  "express-jwt": "8.5.1",              // JWT validation- **Express** 4.18
+
+  "express-oauth2-jwt-bearer": "1.7.1", // OAuth2 JWT
+
+  "jwks-rsa": "3.2.0"                  // JWKS client- **Socket.IO** 4.7 (Real-time communication)---
+
+}
 
 ```
 
 
 
-### Swagger Features### Backend (Node.js + Express)
+**🌐 Framework**### Security & Validation### Requisitos Previos
 
-✅ Test endpoints directly in browser  
+```json
 
-✅ View request/response schemas  - **Patrón:** Arquitectura por Capas (Layered Architecture)### Puntos de EnfoquePara ejecutar en modo desarrollo con recarga automática:
+{- **Helmet** 8.1 - HTTP security headers
 
-✅ Automatic data validation  
+  "express": "4.18.2",                 // Web framework
 
-✅ Copy cURL and code examples  - **API:** REST + WebSockets (Socket.IO)
+  "socket.io": "4.7.2",                // WebSocket server- **CORS** 2.8 - Cross-Origin Resource Sharing- Node.js 18+Para compilar TypeScript a JavaScript:
 
+  "zod": "3.22.4",                     // Validation (actualizar a 4.x)
 
+  "dotenv": "16.3.1"                   // Environment config- **express-rate-limit** 8.1 - Brute force protection
 
-📖 See [SWAGGER_DOCS.md](./SWAGGER_DOCS.md) for detailed documentation.- **Autenticación:** Auth0 + JWT
+}
 
-
-
----- **Base de Datos:** Flexible (MongoDB, PostgreSQL, etc.)
-
-
-
-## 🛡️ Security Features1. **SBOM (Software Bill of Materials)** - Documentación de dependencias```bash
+```- **Zod** 3.22 - Schema validation- npm o yarn
 
 
 
-| Feature | Implementation |### Frontend (React + Vite)
+**📝 Logging y Docs**- **xss** 1.0 - XSS sanitization
 
-|---------|---------------|
+```json
 
-| **HTTP Security Headers** | Helmet with CSP |- **Patrón:** Arquitectura Híbrida (Feature-Based + Component-Based)2. **Análisis Estático de Seguridad** - Escaneo local de vulnerabilidadesnpm run dev
+{- Git## 🏗️ Arquitectura
 
-| **CORS** | Restricted origins |
+  "winston": "3.11.0",                 // Logger
 
-| **Rate Limiting** | Global: 100 req/min, Messages: 30 req/min |- **State Management:** TanStack Query + Context API
+  "@sentry/node": "10.22.0",           // Error tracking### Testing & Quality
 
-| **Input Validation** | Zod schemas |
+  "swagger-jsdoc": "6.2.8",            // API docs generator
 
-| **XSS Protection** | Sanitization with xss library |- **Comunicación Real-Time:** Socket.IO Client3. **Validación de Código** - Linting, formatting, testing```
+  "swagger-ui-express": "5.0.0"        // API docs UI- **Jest** 29.7 - Testing framework
 
-| **URL Validation** | Whitelisted domains for media |
+}
 
-| **Error Handling** | Centralized, no detail exposure |- **Validación:** Zod + React Hook Form
-
-| **Logging** | Winston with security events |
-
-4. **Seguridad en Desarrollo** - Validación, sanitización, rate limiting
-
----
-
----
-
-## 📦 Tech Stack
-
-## Build
-
-### Runtime & Framework
-
-- **Node.js** 18+ with TypeScript 5.1+## 🚀 Quick Start
-
-- **Express** 4.18
-
-- **Socket.IO** 4.7 (Real-time communication)---
+```- **Supertest** 7.1 - HTTP integration testing
 
 
 
-### Security & Validation### Requisitos Previos
-
-- **Helmet** 8.1 - HTTP security headers
-
-- **CORS** 2.8 - Cross-Origin Resource Sharing- Node.js 18+Para compilar TypeScript a JavaScript:
-
-- **express-rate-limit** 8.1 - Brute force protection
-
-- **Zod** 3.22 - Schema validation- npm o yarn
-
-- **xss** 1.0 - XSS sanitization
-
-- Git## 🏗️ Arquitectura
-
-### Testing & Quality
-
-- **Jest** 29.7 - Testing framework
-
-- **Supertest** 7.1 - HTTP integration testing
-
-- **Coverage:** 87%+ (39 tests passing)### Instalación```bash
-
-- **ESLint** - Code linting
-
-- **TypeScript** - Type safety
+#### Frontend (20 dependencias)- **Coverage:** 87%+ (39 tests passing)### Instalación```bash
 
 
 
-### Documentation```bash### Backend (Node.js + Express)npm run build
+**🔐 Autenticación**- **ESLint** - Code linting
+
+```json
+
+{- **TypeScript** - Type safety
+
+  "@auth0/auth0-react": "2.8.0",       // OAuth2/OIDC
+
+  "dompurify": "3.3.0",                // XSS prevention
+
+  "zod": "4.1.12"                      // Schema validation
+
+}### Documentation```bash### Backend (Node.js + Express)npm run build
+
+```
 
 - **Swagger UI Express** 5.0 - API documentation
 
-- **Swagger JSDoc** 6.2 - OpenAPI 3.0 spec generation# Clonar repositorio
+**🌐 Comunicación**
+
+```json- **Swagger JSDoc** 6.2 - OpenAPI 3.0 spec generation# Clonar repositorio
+
+{
+
+  "axios": "1.12.2",                   // HTTP client
+
+  "socket.io-client": "4.8.1"          // WebSocket client
+
+}---git clone https://github.com/BrandonJafeth/una-chat-backend.git- **Patrón:** Arquitectura por Capas (Layered Architecture)```
+
+```
 
 
 
----git clone https://github.com/BrandonJafeth/una-chat-backend.git- **Patrón:** Arquitectura por Capas (Layered Architecture)```
+**🎨 UI**
+
+```json## 📁 Project Structurecd una-chat-backend
+
+{
+
+  "react": "19.1.1",                   // UI framework
+
+  "react-dom": "19.1.1",               // React renderer
+
+  "tailwindcss": "4.1.14",             // CSS framework```- **API:** REST + WebSockets (Socket.IO)
+
+  "clsx": "2.1.1",                     // Utility
+
+  "@sentry/react": "10.22.0"           // Error trackingsrc/
+
+}
+
+```├── config/# Instalar dependencias
 
 
 
-## 📁 Project Structurecd una-chat-backend
+### 📊 Cumplimiento de Licencias│   ├── environment.ts       # Environment variables
 
 
 
-```- **API:** REST + WebSockets (Socket.IO)
+✅ **Todas las licencias son compatibles con uso comercial**│   ├── security.config.ts   # Helmet, CORS, CSPnpm install- **Autenticación:** Auth0 + JWT## Ejecución
 
-src/
 
-├── config/# Instalar dependencias
 
-│   ├── environment.ts       # Environment variables
+| Licencia | Componentes | Restricciones |│   └── swagger.config.ts    # OpenAPI 3.0 specification
 
-│   ├── security.config.ts   # Helmet, CORS, CSPnpm install- **Autenticación:** Auth0 + JWT## Ejecución
+|----------|-------------|---------------|
 
-│   └── swagger.config.ts    # OpenAPI 3.0 specification
+| **MIT** | 28 | ✅ Ninguna (mantener copyright) |│
+
+| **BSD-2/BSD-3** | 4 | ✅ Ninguna (mantener copyright) |
+
+| **Apache-2.0** | 3 | ✅ Ninguna (patent grant incluido) |├── controllers/
+
+| **MPL-2.0** | 2 | ✅ Solo archivos modificados |
+
+| **LGPL-2.1** | 1 | ✅ Compatible (solo runtime) |│   ├── chat.controller.ts   # Chat message handlers# Configurar variables de entorno- **Base de Datos:** Flexible (MongoDB, PostgreSQL, etc.)
+
+
+
+### 🚨 Plan de Acción Inmediato│   └── health.controller.ts # Health check
+
+
+
+#### 1. CRÍTICO - Actualizar Semgrep (Esta semana)│cp .env.example .env
+
+```bash
+
+# Desinstalar versión obsoleta├── middlewares/
+
+npm uninstall semgrep
+
+│   ├── validation.middleware.ts     # Zod schema validation```Para ejecutar la aplicación compilada:
+
+# Instalar versión actual
+
+npm install --save-dev @semgrep/cli@latest│   ├── sanitization.middleware.ts   # XSS sanitization
+
+
+
+# O usar con Docker│   ├── rateLimit.middleware.ts      # Rate limiting
+
+docker run --rm -v "${PWD}:/src" semgrep/semgrep semgrep scan --config=auto
+
+```│   └── errorHandler.middleware.ts   # Centralized error handling
+
+
+
+#### 2. ALTO - Reemplazar librería xss (2 semanas)│### Desarrollo### Frontend (React + Vite)
+
+```bash
+
+# Remover xss├── services/
+
+npm uninstall xss
+
+│   ├── message.service.ts   # Message business logic
+
+# Refactorizar código:
+
+# ❌ Antes│   ├── security.service.ts  # Security utilities
+
+import xss from 'xss'
+
+const clean = xss(userInput)│   └── logger.service.ts    # Winston logger```bash- **Patrón:** Arquitectura Híbrida (Feature-Based + Component-Based)```bash
+
+
+
+# ✅ Después│
+
+import DOMPurify from 'isomorphic-dompurify'
+
+const clean = DOMPurify.sanitize(userInput)├── routes/# Ejecutar en modo desarrollo con hot-reload
+
+```
+
+│   ├── index.ts             # Route aggregator
+
+#### 3. MEDIO - Actualizar Zod en Backend (1 mes)
+
+```bash│   ├── chat.routes.ts       # Chat endpoints (with Swagger docs)npm run dev- **State Management:** TanStack Query + Context APInpm start
+
+# Backend: v3.22.4 → v4.1.12
+
+npm update zod@latest│   └── health.routes.ts     # Health endpoint (with Swagger docs)
+
+```
+
+│
+
+### 🔄 Auditoría Continua
+
+├── utils/
+
+```bash
+
+# Verificar vulnerabilidades│   ├── validators.ts        # Custom validators# Ejecutar linting- **Comunicación Real-Time:** Socket.IO Client```
+
+npm audit
+
+│   └── asyncHandler.ts      # Async error wrapper
+
+# Verificar versiones desactualizadas
+
+npm outdated│npm run lint
+
+
+
+# Escaneo de seguridad (después de actualizar Semgrep)├── app.ts                   # Express app configuration
+
+npx @semgrep/cli scan --config=auto
+
+```└── server.ts                # Entry point- **Validación:** Zod + React Hook Form
+
+
+
+### 📚 Referencias de Seguridad
+
+
+
+- [OWASP Top 10 2021](https://owasp.org/www-project-top-ten/)tests/# Ejecutar tests
+
+- [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
+
+- [NPM Security Advisories](https://github.com/advisories)├── unit/
+
+- [Snyk Vulnerability Database](https://security.snyk.io/)
+
+│   ├── services/npm testLa aplicación escuchará en `http://localhost:3000`
+
+**Próxima revisión SBOM:** 8 de Febrero, 2026
+
+│   └── middlewares/
+
+---
+
+└── integration/
+
+## 🛡️ Security Features
+
+    ├── health.integration.test.ts
+
+| Feature | Implementation |
+
+|---------|---------------|    └── chat.integration.test.ts# Build de producción---
+
+| **HTTP Security Headers** | Helmet with CSP |
+
+| **CORS** | Restricted origins |```
+
+| **Rate Limiting** | Global: 100 req/min, Messages: 30 req/min |
+
+| **Input Validation** | Zod schemas |npm run build
+
+| **XSS Protection** | Sanitization with isomorphic-dompurify |
+
+| **URL Validation** | Whitelisted domains for media |---
+
+| **Error Handling** | Centralized, no detail exposure |
+
+| **Logging** | Winston with security events |## Estructura del Proyecto
+
+| **Authentication** | Auth0 + JWT (RS256) |
+
+## 📝 Available Endpoints
+
+---
+
+# Ejecutar aplicación compilada
+
+## 📁 Project Structure
+
+### Health Check
+
+```
+
+src/```httpnpm start## 🚀 Quick Start
+
+├── config/
+
+│   ├── environment.ts       # Environment variablesGET /api/health
+
+│   ├── security.config.ts   # Helmet, CORS, CSP
+
+│   └── swagger.config.ts    # OpenAPI 3.0 specification``````
 
 │
 
 ├── controllers/
 
-│   ├── chat.controller.ts   # Chat message handlers# Configurar variables de entorno- **Base de Datos:** Flexible (MongoDB, PostgreSQL, etc.)
+│   ├── chat.controller.ts   # Chat message handlers
 
-│   └── health.controller.ts # Health check
+│   └── health.controller.ts # Health check**Response (200):**```
 
-│cp .env.example .env
+│
 
-├── middlewares/
+├── middlewares/```json
 
-│   ├── validation.middleware.ts     # Zod schema validation```Para ejecutar la aplicación compilada:
+│   ├── validation.middleware.ts     # Zod schema validation
 
-│   ├── sanitization.middleware.ts   # XSS sanitization
+│   ├── sanitization.middleware.ts   # XSS sanitization{---
 
 │   ├── rateLimit.middleware.ts      # Rate limiting
 
-│   └── errorHandler.middleware.ts   # Centralized error handling
+│   └── errorHandler.middleware.ts   # Centralized error handling  "message": "OK",
 
-│### Desarrollo### Frontend (React + Vite)
+│
 
-├── services/
+├── services/  "uptime": 12345.67,### Requisitos Previos├── src/
 
 │   ├── message.service.ts   # Message business logic
 
-│   ├── security.service.ts  # Security utilities
+│   ├── security.service.ts  # Security utilities  "timestamp": "2025-10-18T12:00:00.000Z",
 
-│   └── logger.service.ts    # Winston logger```bash- **Patrón:** Arquitectura Híbrida (Feature-Based + Component-Based)```bash
+│   └── logger.service.ts    # Winston logger
+
+│  "environment": "development"## 📁 Estructura del Proyecto
+
+├── routes/
+
+│   ├── index.ts             # Route aggregator}
+
+│   ├── chat.routes.ts       # Chat endpoints
+
+│   └── health.routes.ts     # Health endpoint```- Node.js 18+│   └── app.ts          # Archivo principal de la aplicación
 
 │
 
-├── routes/# Ejecutar en modo desarrollo con hot-reload
+├── sockets/
 
-│   ├── index.ts             # Route aggregator
+│   └── chat.handler.ts      # WebSocket handlers
 
-│   ├── chat.routes.ts       # Chat endpoints (with Swagger docs)npm run dev- **State Management:** TanStack Query + Context APInpm start
-
-│   └── health.routes.ts     # Health endpoint (with Swagger docs)
-
-│
+│### Send Message### Backend
 
 ├── utils/
 
-│   ├── validators.ts        # Custom validators# Ejecutar linting- **Comunicación Real-Time:** Socket.IO Client```
+│   ├── validators.ts        # Custom validators```http
 
 │   └── asyncHandler.ts      # Async error wrapper
 
-│npm run lint
+│POST /api/chat/messages```- npm o yarn├── dist/               # Archivos compilados (generado por npm run build)
 
 ├── app.ts                   # Express app configuration
 
-└── server.ts                # Entry point- **Validación:** Zod + React Hook Form
+└── server.ts                # Entry point```
 
 
 
-tests/# Ejecutar tests
+tests/backend/
 
 ├── unit/
 
-│   ├── services/npm testLa aplicación escuchará en `http://localhost:3000`
+│   ├── services/**Request Body:**
 
 │   └── middlewares/
 
-└── integration/
+└── integration/```json├── src/- Git├── package.json        # Dependencias del proyecto
 
     ├── health.integration.test.ts
 
-    └── chat.integration.test.ts# Build de producción---
+    └── chat.integration.test.ts{
 
 ```
-
-npm run build
-
----
-
-## Estructura del Proyecto
-
-## 📝 Available Endpoints
-
-# Ejecutar aplicación compilada
-
-### Health Check
-
-```httpnpm start## 🚀 Quick Start
-
-GET /api/health
-
-``````
-
-
-
-**Response (200):**```
-
-```json
-
-{---
-
-  "message": "OK",
-
-  "uptime": 12345.67,### Requisitos Previos├── src/
-
-  "timestamp": "2025-10-18T12:00:00.000Z",
-
-  "environment": "development"## 📁 Estructura del Proyecto
-
-}
-
-```- Node.js 18+│   └── app.ts          # Archivo principal de la aplicación
-
-
-
-### Send Message### Backend
-
-```http
-
-POST /api/chat/messages```- npm o yarn├── dist/               # Archivos compilados (generado por npm run build)
-
-```
-
-backend/
-
-**Request Body:**
-
-```json├── src/- Git├── package.json        # Dependencias del proyecto
-
-{
 
   "nombre": "JohnDoe",│   ├── config/           # Configuración (env, security, socket, auth0)
 
+---
+
   "mensaje": "Hello everyone!",
+
+## 📝 Available Endpoints
 
   "color": "#FF5733"│   ├── controllers/      # Controladores HTTP/Socket├── tsconfig.json       # Configuración de TypeScript
 
-}
+### Health Check
 
-```│   ├── middlewares/      # Middlewares (auth, validation, error handling)
+```http}
+
+GET /api/health
+
+``````│   ├── middlewares/      # Middlewares (auth, validation, error handling)
 
 
-
-**Validation:**│   ├── services/         # Lógica de negocio### Instalación├── .gitignore          # Archivos a ignorar en Git
-
-- `nombre`: 3-50 characters
-
-- `mensaje`: 1-5000 characters│   ├── routes/           # Definición de rutas
-
-- `color`: Hex format (#RGB or #RRGGBB)
-
-│   ├── sockets/          # Handlers de WebSocket└── README.md           # Este archivo
 
 **Response (200):**
 
+```json
+
+{**Validation:**│   ├── services/         # Lógica de negocio### Instalación├── .gitignore          # Archivos a ignorar en Git
+
+  "message": "OK",
+
+  "uptime": 12345.67,- `nombre`: 3-50 characters
+
+  "timestamp": "2025-11-08T12:00:00.000Z",
+
+  "environment": "development"- `mensaje`: 1-5000 characters│   ├── routes/           # Definición de rutas
+
+}
+
+```- `color`: Hex format (#RGB or #RRGGBB)
+
+
+
+### Send Message│   ├── sockets/          # Handlers de WebSocket└── README.md           # Este archivo
+
+```http
+
+POST /api/chat/messages**Response (200):**
+
+```
+
 ```json│   ├── utils/            # Utilidades y helpers
+
+**Request Body:**
+
+```json{
 
 {
 
-  "success": true,│   └── app.js            # Configuración de Express```bash```
+  "nombre": "JohnDoe",  "success": true,│   └── app.js            # Configuración de Express```bash```
+
+  "mensaje": "Hello everyone!",
+
+  "color": "#FF5733"  "data": {
+
+}
+
+```    "nombre": "JohnDoe",├── tests/
+
+
+
+**Validation:**    "mensaje": "Hello everyone!",
+
+- `nombre`: 3-50 characters
+
+- `mensaje`: 1-5000 characters    "color": "#FF5733",│   ├── unit/             # Tests unitarios# Clonar repositorio
+
+- `color`: Hex format (#RGB or #RRGGBB)
+
+    "timestamp": "2025-10-18T12:00:00.000Z"
+
+**Response (200):**
+
+```json  }│   └── integration/      # Tests de integracióngit clone https://github.com/BrandonJafeth/una-chat-backend.git
+
+{
+
+  "success": true,}
 
   "data": {
 
-    "nombre": "JohnDoe",├── tests/
+    "nombre": "JohnDoe",```└── server.js             # Entry pointcd una-chat-backend
 
     "mensaje": "Hello everyone!",
 
-    "color": "#FF5733",│   ├── unit/             # Tests unitarios# Clonar repositorio
+    "color": "#FF5733",
 
-    "timestamp": "2025-10-18T12:00:00.000Z"
+    "timestamp": "2025-11-08T12:00:00.000Z"
 
-  }│   └── integration/      # Tests de integracióngit clone https://github.com/BrandonJafeth/una-chat-backend.git
+  }**Error (400 - Validation):**```
 
 }
 
-```└── server.js             # Entry pointcd una-chat-backend
+``````json
 
 
 
-**Error (400 - Validation):**```
+📖 **Full documentation:** http://localhost:5000/api-docs{# Instalar dependencias
 
-```json
 
-{# Instalar dependencias
 
-  "success": false,
+---  "success": false,
 
-  "error": {### Frontendnpm install
 
-    "code": "VALIDATION_ERROR",
 
-    "message": "Invalid username length",```
+## 🧪 Testing  "error": {### Frontendnpm install
 
-    "timestamp": "2025-10-18T12:00:00.000Z"
+
+
+```bash    "code": "VALIDATION_ERROR",
+
+# Run all tests with coverage
+
+npm test    "message": "Invalid username length",```
+
+
+
+# Run tests in watch mode    "timestamp": "2025-10-18T12:00:00.000Z"
+
+npm run test:watch
 
   }frontend/src/# Configurar variables de entorno
 
-}
+# Run specific test file
+
+npm test -- security.service.test.ts}
+
+```
 
 ```├── assets/               # Imágenes, fuentes, etc.cp .env.example .env
 
+### Test Coverage
 
 
-**Error (429 - Rate Limit):**├── components/           # Componentes React (auth, chat, common, layout)```
 
-```json
+```
 
-{├── hooks/                # Custom hooks (useAuth, useSocket, useChat)
+-----------------------------|---------|----------|---------|---------|**Error (429 - Rate Limit):**├── components/           # Componentes React (auth, chat, common, layout)```
+
+File                         | % Stmts | % Branch | % Funcs | % Lines |
+
+-----------------------------|---------|----------|---------|---------|```json
+
+All files                    |   87.91 |    73.03 |   88.67 |   88.19 |
+
+-----------------------------|---------|----------|---------|---------|{├── hooks/                # Custom hooks (useAuth, useSocket, useChat)
+
+```
 
   "message": "Too many requests, please try again later"
 
-}├── context/              # Context API (AuthContext, ChatContext)### Desarrollo
+✅ **39 tests passing** across 5 test suites  
+
+✅ **87%+ coverage** in statements, functions, and lines  }├── context/              # Context API (AuthContext, ChatContext)### Desarrollo
+
+⚠️ **73% branch coverage** (below 80% threshold but acceptable)
 
 ```
+
+---
 
 ├── services/             # Servicios (api, auth, socket, security)
 
+## 📋 Convenciones de Código
+
 ### Get Message History
+
+Siguiendo las especificaciones de [AGENTS.MD](./AGENTS.MD):
 
 ```http├── utils/                # Utilidades (validators, sanitizers, constants)```bash
 
+### ✅ Backend
+
 GET /api/chat/messages/history
 
-```├── pages/                # Páginas (Home, Login, Chat, NotFound)# Ejecutar en modo desarrollo con hot-reload
+#### Variables y Funciones (camelCase)
 
+```javascript```├── pages/                # Páginas (Home, Login, Chat, NotFound)# Ejecutar en modo desarrollo con hot-reload
 
+const getUserById = (userId) => { /* ... */ }
+
+const isValidEmail = (email) => { /* ... */ }
+
+```
 
 **Response (200):**├── styles/               # Estilos globales y Tailwindnpm run dev
 
-```json
+#### Constantes (UPPER_SNAKE_CASE)
 
-{└── main.jsx              # Entry point
+```javascript```json
+
+const MAX_LOGIN_ATTEMPTS = 5
+
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000{└── main.jsx              # Entry point
+
+```
 
   "success": true,
 
-  "data": [],```# Ejecutar linting
+#### Clases y Servicios (PascalCase)
 
-  "message": "Message history not implemented yet"
+```javascript  "data": [],```# Ejecutar linting
+
+class UserService { /* ... */ }
+
+class AuthMiddleware { /* ... */ }  "message": "Message history not implemented yet"
+
+```
 
 }npm run lint
 
+### ✅ Frontend
+
 ```
 
----
+#### Variables de Estado (camelCase con prefijo descriptivo)
 
-📖 **Full documentation with examples:** http://localhost:5000/api-docs
+```javascript---
 
-# Ejecutar tests
+const [currentUser, setCurrentUser] = useState(null)
 
----
+const [chatMessages, setChatMessages] = useState([])📖 **Full documentation with examples:** http://localhost:5000/api-docs
 
-## 📋 Convenciones de Códigonpm test
+const [isLoadingMessages, setIsLoadingMessages] = useState(false)
 
-## 🧪 Testing
+```# Ejecutar tests
 
 
+
+#### Componentes (PascalCase)---
+
+```javascript
+
+function ChatContainer() { /* ... */ }## 📋 Convenciones de Códigonpm test
+
+function MessageList({ messages }) { /* ... */ }
+
+```## 🧪 Testing
+
+
+
+#### Hooks Personalizados (use + PascalCase)
+
+```javascript
+
+function useAuth() { /* ... */ }```bash
+
+function useChat() { /* ... */ }
+
+```# Run all tests with coverage### ✅ Backend# Build de producción
+
+
+
+---npm test
+
+
+
+## 📊 SOLID Principlesnpm run build
+
+
+
+Todos los componentes DEBEN seguir SOLID:# Run tests in watch mode
+
+
+
+- **S** - Single Responsibility: Una función/clase, una responsabilidadnpm run test:watch#### Variables y Funciones (camelCase)
+
+- **O** - Open/Closed: Extendible sin modificar código existente
+
+- **L** - Liskov Substitution: Sustitución segura de tipos
+
+- **I** - Interface Segregation: Interfaces específicas, no genéricas
+
+- **D** - Dependency Inversion: Inyección de dependencias# Run specific test file```javascript# Ejecutar aplicación compilada
+
+
+
+---npm test -- security.service.test.ts
+
+
+
+## 🔄 Flujo de Desarrollo```const getUserById = (userId) => { /* ... */ }npm start
+
+
+
+### 1. Crear Tests (Test-First)
 
 ```bash
 
-# Run all tests with coverage### ✅ Backend# Build de producción
+# Crear archivo de test en tests/unit o tests/integration### Test Coverageconst isValidEmail = (email) => { /* ... */ }```
 
-npm test
+# Escribir casos usando BDD (Given-When-Then)
 
-npm run build
+# Tests deben FALLAR inicialmente (Red phase)
 
-# Run tests in watch mode
-
-npm run test:watch#### Variables y Funciones (camelCase)
-
-
-
-# Run specific test file```javascript# Ejecutar aplicación compilada
-
-npm test -- security.service.test.ts
-
-```const getUserById = (userId) => { /* ... */ }npm start
-
-
-
-### Test Coverageconst isValidEmail = (email) => { /* ... */ }```
-
-
+```
 
 ``````
 
------------------------------|---------|----------|---------|---------|
+### 2. Implementar Código
 
-File                         | % Stmts | % Branch | % Funcs | % Lines |---
+```bash-----------------------------|---------|----------|---------|---------|
 
------------------------------|---------|----------|---------|---------|
+# Escribir código mínimo para pasar tests (Green phase)
 
-All files                    |   87.91 |    73.03 |   88.67 |   88.19 |#### Constantes (UPPER_SNAKE_CASE)
+# Seguir convenciones de nombresFile                         | % Stmts | % Branch | % Funcs | % Lines |---
 
------------------------------|---------|----------|---------|---------|
+# Aplicar SOLID principles
 
-``````javascript## 📁 Estructura del Proyecto
+```-----------------------------|---------|----------|---------|---------|
 
 
 
-✅ **39 tests passing** across 5 test suites  const MAX_LOGIN_ATTEMPTS = 5
-
-✅ **87%+ coverage** in statements, functions, and lines  
-
-⚠️ **73% branch coverage** (below 80% threshold but acceptable)const RATE_LIMIT_WINDOW = 15 * 60 * 1000### Backend
-
-
-
-### Test Organization``````
-
-
-
-```backend/
-
-tests/
-
-├── unit/#### Clases y Servicios (PascalCase)├── src/
-
-│   ├── services/
-
-│   │   ├── message.service.test.ts      (14 tests)```javascript│   ├── config/           # Configuración (env, security, socket, auth0)
-
-│   │   └── security.service.test.ts     (11 tests)
-
-│   └── middlewares/class UserService { /* ... */ }│   ├── controllers/      # Controladores HTTP/Socket
-
-│       └── errorHandler.test.ts         (7 tests)
-
-└── integration/class AuthMiddleware { /* ... */ }│   ├── middlewares/      # Middlewares (auth, validation, error handling)
-
-    ├── health.integration.test.ts       (1 test)
-
-    └── chat.integration.test.ts         (6 tests)```│   ├── services/         # Lógica de negocio
-
-```
-
-│   ├── routes/           # Definición de rutas
-
----
-
-### ✅ Frontend│   ├── sockets/          # Handlers de WebSocket
-
-## 🔧 Environment Variables
-
-│   ├── utils/            # Utilidades y helpers
-
-Create a `.env` file in the root directory:
-
-#### Variables de Estado (camelCase con prefijo descriptivo)│   └── app.js            # Configuración de Express
-
-```env
-
-# Server Configuration```javascript├── tests/
-
-PORT=5000
-
-NODE_ENV=developmentconst [currentUser, setCurrentUser] = useState(null)│   ├── unit/             # Tests unitarios
-
-MAX_REQUEST_SIZE=1mb
-
-const [chatMessages, setChatMessages] = useState([])│   └── integration/      # Tests de integración
-
-# CORS
-
-ALLOWED_ORIGINS=http://localhost:3000const [isLoadingMessages, setIsLoadingMessages] = useState(false)└── server.js             # Entry point
-
-
-
-# Logging``````
-
-LOG_LEVEL=info
-
-
-
-# Rate Limiting (optional, defaults are set)
-
-RATE_LIMIT_WINDOW_MS=60000#### Componentes (PascalCase)### Frontend
-
-RATE_LIMIT_MAX_REQUESTS=100
-
-``````javascript```
-
-
-
----function ChatContainer() { /* ... */ }frontend/src/
-
-
-
-## 👥 Development Guidelinesfunction MessageList({ messages }) { /* ... */ }├── assets/               # Imágenes, fuentes, etc.
-
-
-
-This project follows strict specifications defined in [AGENTS.MD](./AGENTS.MD):```├── components/           # Componentes React (auth, chat, common, layout)
-
-
-
-### Code Quality Principles├── hooks/                # Custom hooks (useAuth, useSocket, useChat)
-
-
-
-✅ **SOLID Principles**#### Hooks Personalizados (use + PascalCase)├── context/              # Context API (AuthContext, ChatContext)
-
-- Single Responsibility
-
-- Open/Closed```javascript├── services/             # Servicios (api, auth, socket, security)
-
-- Liskov Substitution
-
-- Interface Segregationfunction useAuth() { /* ... */ }├── utils/                # Utilidades (validators, sanitizers, constants)
-
-- Dependency Inversion
-
-function useChat() { /* ... */ }├── pages/                # Páginas (Home, Login, Chat, NotFound)
-
-✅ **Clean Code**
-
-- Max 50 lines per function```├── styles/               # Estilos globales y Tailwind
-
-- Max 3 nested levels
-
-- Self-documenting code└── main.jsx              # Entry point
-
-- No unnecessary comments
-
-- No emojis in code---```
-
-
-
-✅ **Test-First Development (BDD)**
-
-- Write tests BEFORE code
-
-- Minimum 80% coverage## 🔒 Seguridad---
-
-- Gherkin syntax (Given-When-Then)
-
-
-
-✅ **Security-First**
-
-- Input validation (Zod schemas)### Backend## 📋 Convenciones de Código
-
-- Output sanitization (XSS prevention)
-
-- No hardcoded secrets- ✅ **Validación:** Zod/Joi schemas
-
-- Rate limiting on sensitive endpoints
-
-- Security event logging- ✅ **Sanitización:** XSS prevention, input sanitization### ✅ Backend
-
-
-
-### Naming Conventions- ✅ **Rate Limiting:** Brute force protection
-
-
-
-| Type | Convention | Example |- ✅ **CORS:** Configuración restrictiva#### Variables y Funciones (camelCase)
-
-|------|------------|---------|
-
-| Variables & Functions | camelCase | `getUserById()` |- ✅ **Helmet:** Security headers```javascript
-
-| Constants | UPPER_SNAKE_CASE | `MAX_LOGIN_ATTEMPTS` |
-
-| Classes & Services | PascalCase | `MessageService` |- ✅ **JWT:** Expiración corta (15 minutos)const getUserById = (userId) => { /* ... */ }
-
-| Files | kebab-case | `user-service.ts` |
-
-- ✅ **Logging:** Eventos de seguridadconst isValidEmail = (email) => { /* ... */ }
-
----
-
-```
-
-## 📊 Commit Convention
-
-### Frontend
+### 3. RefactorizarAll files                    |   87.91 |    73.03 |   88.67 |   88.19 |#### Constantes (UPPER_SNAKE_CASE)
 
 ```bash
 
+# Mejorar legibilidad (Blue phase)-----------------------------|---------|----------|---------|---------|
+
+# Reducir duplicación
+
+# Tests deben seguir pasando``````javascript## 📁 Estructura del Proyecto
+
+```
+
+
+
+### 4. Validación
+
+```bash✅ **39 tests passing** across 5 test suites  const MAX_LOGIN_ATTEMPTS = 5
+
+npm run lint       # ESLint
+
+npm test           # Tests + cobertura (mínimo 80%)✅ **87%+ coverage** in statements, functions, and lines  
+
+npm run build      # Compilación
+
+```⚠️ **73% branch coverage** (below 80% threshold but acceptable)const RATE_LIMIT_WINDOW = 15 * 60 * 1000### Backend
+
+
+
+### 5. Commit
+
+```bash
+
+# Formato: [tipo]: descripción### Test Organization``````
+
+# feat: add user authentication
+
+# fix: resolve login bug
+
+# docs: update README
+
+# refactor: improve message service```backend/
+
+# test: add security service tests
+
+```tests/
+
+
+
+---├── unit/#### Clases y Servicios (PascalCase)├── src/
+
+
+
+## ✅ Checklist Antes de Push│   ├── services/
+
+
+
+- [ ] ✅ Convenciones de nombres seguidas│   │   ├── message.service.test.ts      (14 tests)```javascript│   ├── config/           # Configuración (env, security, socket, auth0)
+
+- [ ] ✅ Entrada validada (Zod schemas)
+
+- [ ] ✅ Salida sanitizada (DOMPurify)│   │   └── security.service.test.ts     (11 tests)
+
+- [ ] ✅ No hardcodear secrets
+
+- [ ] ✅ Tests green (80% cobertura mínima)│   └── middlewares/class UserService { /* ... */ }│   ├── controllers/      # Controladores HTTP/Socket
+
+- [ ] ✅ Linting sin errores (`npm run lint`)
+
+- [ ] ✅ Build sin errores (`npm run build`)│       └── errorHandler.test.ts         (7 tests)
+
+- [ ] ✅ Código limpio (máx 50 líneas por función)
+
+- [ ] ✅ SOLID principles aplicados└── integration/class AuthMiddleware { /* ... */ }│   ├── middlewares/      # Middlewares (auth, validation, error handling)
+
+- [ ] ✅ Documentación actualizada
+
+- [ ] ✅ Sin comentarios innecesarios    ├── health.integration.test.ts       (1 test)
+
+- [ ] ✅ Sin emojis en código
+
+    └── chat.integration.test.ts         (6 tests)```│   ├── services/         # Lógica de negocio
+
+---
+
+```
+
+## 🛠️ Stack Tecnológico
+
+│   ├── routes/           # Definición de rutas
+
+### Backend
+
+---
+
+| Categoría | Tecnología |
+
+|-----------|-----------|### ✅ Frontend│   ├── sockets/          # Handlers de WebSocket
+
+| Framework | Express.js 4.18 |
+
+| Runtime | Node.js 18+ |## 🔧 Environment Variables
+
+| Lenguaje | TypeScript 5.1+ |
+
+| Auth | Auth0 + JWT |│   ├── utils/            # Utilidades y helpers
+
+| Validación | Zod 3.22 |
+
+| Logger | Winston 3.11 |Create a `.env` file in the root directory:
+
+| Testing | Jest 29.7 + Supertest 7.1 |
+
+| Linting | ESLint + Prettier |#### Variables de Estado (camelCase con prefijo descriptivo)│   └── app.js            # Configuración de Express
+
+| Security | Helmet 8.1, express-rate-limit 8.1, isomorphic-dompurify 2.9 |
+
+| WebSocket | Socket.IO 4.7 |```env
+
+| Docs | Swagger UI Express 5.0 + Swagger JSDoc 6.2 |
+
+| Monitoring | Sentry 10.22 |# Server Configuration```javascript├── tests/
+
+
+
+### FrontendPORT=5000
+
+
+
+| Categoría | Tecnología |NODE_ENV=developmentconst [currentUser, setCurrentUser] = useState(null)│   ├── unit/             # Tests unitarios
+
+|-----------|-----------|
+
+| Framework | React 19.1 |MAX_REQUEST_SIZE=1mb
+
+| Build Tool | Vite 4.1 |
+
+| Styling | Tailwind CSS 4.1 |const [chatMessages, setChatMessages] = useState([])│   └── integration/      # Tests de integración
+
+| HTTP Client | Axios 1.12 |
+
+| State | TanStack Query + Context API |# CORS
+
+| Forms | React Hook Form + Zod 4.1 |
+
+| Testing | Vitest + React Testing Library |ALLOWED_ORIGINS=http://localhost:3000const [isLoadingMessages, setIsLoadingMessages] = useState(false)└── server.js             # Entry point
+
+| Linting | ESLint + Prettier |
+
+| WebSocket | Socket.IO Client 4.8 |
+
+| Auth | Auth0 React 2.8 |
+
+| Security | DOMPurify 3.3 |# Logging``````
+
+| Monitoring | Sentry React 10.22 |
+
+LOG_LEVEL=info
+
+---
+
+
+
+## 📚 Documentación
+
+# Rate Limiting (optional, defaults are set)
+
+- **[AGENTS.MD](./AGENTS.MD)** - Especificaciones completas para agentes de IA y desarrollo
+
+- **[SWAGGER_DOCS.md](./SWAGGER_DOCS.md)** - Guía de documentación de APIRATE_LIMIT_WINDOW_MS=60000#### Componentes (PascalCase)### Frontend
+
+- **Interactive API Docs:** http://localhost:5000/api-docs
+
+RATE_LIMIT_MAX_REQUESTS=100
+
+---
+
+``````javascript```
+
+## 🔧 Environment Variables
+
+
+
+Create a `.env` file in the root directory:
+
+---function ChatContainer() { /* ... */ }frontend/src/
+
+```env
+
+# Server Configuration
+
+PORT=5000
+
+NODE_ENV=development## 👥 Development Guidelinesfunction MessageList({ messages }) { /* ... */ }├── assets/               # Imágenes, fuentes, etc.
+
+MAX_REQUEST_SIZE=1mb
+
+
+
+# CORS
+
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173This project follows strict specifications defined in [AGENTS.MD](./AGENTS.MD):```├── components/           # Componentes React (auth, chat, common, layout)
+
+
+
+# Logging
+
+LOG_LEVEL=info
+
+### Code Quality Principles├── hooks/                # Custom hooks (useAuth, useSocket, useChat)
+
+# Rate Limiting
+
+RATE_LIMIT_WINDOW_MS=60000
+
+RATE_LIMIT_MAX_REQUESTS=100
+
+✅ **SOLID Principles**#### Hooks Personalizados (use + PascalCase)├── context/              # Context API (AuthContext, ChatContext)
+
+# Auth0 (optional)
+
+AUTH0_DOMAIN=your-domain.auth0.com- Single Responsibility
+
+AUTH0_AUDIENCE=your-api-audience
+
+- Open/Closed```javascript├── services/             # Servicios (api, auth, socket, security)
+
+# JWT (if not using Auth0)
+
+JWT_SECRET=your_super_secret_key_change_in_production- Liskov Substitution
+
+JWT_EXPIRATION=15m
+
+- Interface Segregationfunction useAuth() { /* ... */ }├── utils/                # Utilidades (validators, sanitizers, constants)
+
+# Database (optional)
+
+DATABASE_URL=mongodb://localhost:27017/una_chat- Dependency Inversion
+
+```
+
+function useChat() { /* ... */ }├── pages/                # Páginas (Home, Login, Chat, NotFound)
+
+---
+
+✅ **Clean Code**
+
+## 🚢 Deployment
+
+- Max 50 lines per function```├── styles/               # Estilos globales y Tailwind
+
+### Build for Production
+
+- Max 3 nested levels
+
+```bash
+
+npm run build- Self-documenting code└── main.jsx              # Entry point
+
+```
+
+- No unnecessary comments
+
+Output will be in `dist/` directory.
+
+- No emojis in code---```
+
+### Run Production Server
+
+
+
+```bash
+
+npm start✅ **Test-First Development (BDD)**
+
+```
+
+- Write tests BEFORE code
+
+### Docker
+
+- Minimum 80% coverage## 🔒 Seguridad---
+
+```dockerfile
+
+FROM node:18-alpine- Gherkin syntax (Given-When-Then)
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm ci --only=production
+
+COPY dist ./dist✅ **Security-First**
+
+EXPOSE 5000
+
+CMD ["node", "dist/server.js"]- Input validation (Zod schemas)### Backend## 📋 Convenciones de Código
+
+```
+
+- Output sanitization (XSS prevention)
+
+**Build and run:**
+
+```bash- No hardcoded secrets- ✅ **Validación:** Zod/Joi schemas
+
+docker build -t una-chat-backend .
+
+docker run -p 5000:5000 --env-file .env una-chat-backend- Rate limiting on sensitive endpoints
+
+```
+
+- Security event logging- ✅ **Sanitización:** XSS prevention, input sanitization### ✅ Backend
+
+---
+
+
+
+## 🔍 Security Audits
+
+### Naming Conventions- ✅ **Rate Limiting:** Brute force protection
+
+```bash
+
+# Check for npm vulnerabilities
+
+npm audit
+
+| Type | Convention | Example |- ✅ **CORS:** Configuración restrictiva#### Variables y Funciones (camelCase)
+
+# Fix vulnerabilities (if possible)
+
+npm audit fix|------|------------|---------|
+
+
+
+# Generate detailed audit report| Variables & Functions | camelCase | `getUserById()` |- ✅ **Helmet:** Security headers```javascript
+
+npm audit --json > audit-report.json
+
+```| Constants | UPPER_SNAKE_CASE | `MAX_LOGIN_ATTEMPTS` |
+
+
+
+---| Classes & Services | PascalCase | `MessageService` |- ✅ **JWT:** Expiración corta (15 minutos)const getUserById = (userId) => { /* ... */ }
+
+
+
+## 📄 Licencia| Files | kebab-case | `user-service.ts` |
+
+
+
+MIT License - Universidad Nacional de Costa Rica (UNA)- ✅ **Logging:** Eventos de seguridadconst isValidEmail = (email) => { /* ... */ }
+
+
+
+------
+
+
+
+## 👨‍💻 Autor```
+
+
+
+**Brandon Jafeth Carrillo Alvarez**  ## 📊 Commit Convention
+
+Universidad Nacional de Costa Rica (UNA)  
+
+Curso: Ciberseguridad - Implementación Segura de Aplicaciones  ### Frontend
+
+Profesor: [Nombre del Profesor]
+
+```bash
+
+---
+
 [type]: description- ✅ **Sanitización:** DOMPurify#### Constantes (UPPER_SNAKE_CASE)
 
-
-
-# Types:- ✅ **Token Storage:** sessionStorage (no localStorage)```javascript
-
-# feat:     New feature
-
-# fix:      Bug fix- ✅ **URL Validation:** Antes de redireccionamientosconst MAX_LOGIN_ATTEMPTS = 5
-
-# docs:     Documentation changes
-
-# style:    Code formatting (no logic change)- ✅ **CSP:** Content Security Policyconst RATE_LIMIT_WINDOW = 15 * 60 * 1000
-
-# refactor: Code refactoring
-
-# perf:     Performance improvement```
-
-# test:     Add or modify tests
-
-# chore:    Dependencies, config, etc.---
+## 🔗 Referencias
 
 
 
-# Example:#### Clases y Servicios (PascalCase)
+- [OWASP Top 10 2021](https://owasp.org/www-project-top-ten/)
+
+- [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)# Types:- ✅ **Token Storage:** sessionStorage (no localStorage)```javascript
+
+- [SOLID Principles](https://en.wikipedia.org/wiki/SOLID)
+
+- [Express.js Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html)# feat:     New feature
+
+- [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
+
+- [React Security Best Practices](https://react.dev/learn/keeping-components-pure)# fix:      Bug fix- ✅ **URL Validation:** Antes de redireccionamientosconst MAX_LOGIN_ATTEMPTS = 5
+
+- [Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)
+
+- [SSDLC - Secure Software Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl/)# docs:     Documentation changes
+
+
+
+---# style:    Code formatting (no logic change)- ✅ **CSP:** Content Security Policyconst RATE_LIMIT_WINDOW = 15 * 60 * 1000
+
+
+
+## 🤝 Contribución# refactor: Code refactoring
+
+
+
+Para contribuir al proyecto:# perf:     Performance improvement```
+
+
+
+1. Fork el repositorio# test:     Add or modify tests
+
+2. Crea una rama feature: `git checkout -b feature/nueva-funcionalidad`
+
+3. Escribe tests PRIMERO (TDD)# chore:    Dependencies, config, etc.---
+
+4. Implementa la funcionalidad
+
+5. Verifica: `npm run lint && npm test && npm run build`
+
+6. Commit: `git commit -am 'feat: add nueva funcionalidad'`
+
+7. Push: `git push origin feature/nueva-funcionalidad`# Example:#### Clases y Servicios (PascalCase)
+
+8. Abre un Pull Request
 
 feat: implement user authentication with JWT
 
-```## 🧪 Testing```javascript
+**Importante:** Todos los PRs deben:
 
+- ✅ Pasar todos los tests (87%+ coverage)```## 🧪 Testing```javascript
 
+- ✅ Pasar linting sin errores
+
+- ✅ Seguir convenciones de [AGENTS.MD](./AGENTS.MD)
+
+- ✅ Incluir documentación actualizada
 
 ---class UserService { /* ... */ }
 
+---
 
+
+
+**Última actualización:** 8 de Noviembre, 2025 | **Versión:** 1.1.0
 
 ## ✅ Pre-Commit Checklist### Metodología: Test-Driven Development (TDD)class AuthMiddleware { /* ... */ }
 
