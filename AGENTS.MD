@@ -1186,5 +1186,5 @@ fixes #42
 
 ---
 
-**Última actualización:** Octubre 2025  
+**Última actualización:** Noviembre 2025  
 **Versión:** 1.0
