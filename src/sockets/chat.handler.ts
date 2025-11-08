@@ -31,7 +31,7 @@ export const setupChatHandlers = (io: Server): void => {
   io.on(SOCKET_EVENTS.CONNECTION, (socket: Socket) => {
     loggerService.info('User connected', { socketId: socket.id })
 
-    socket.on(SOCKET_EVENTS.MESSAGE_SEND, (msg: string) => {
+    socket.on(SOCKET_EVENTS.MESSAGE_SEND, (msg: string | object) => {
       try {
         if (!checkRateLimit(socket.id)) {
           loggerService.logSecurityEvent('socket_rate_limit_exceeded', {
@@ -41,7 +41,9 @@ export const setupChatHandlers = (io: Server): void => {
           return
         }
 
-        const processedMessage = messageService.processMessage(msg)
+        // ✅ Convertir objeto a string si es necesario
+        const msgString = typeof msg === 'string' ? msg : JSON.stringify(msg)
+        const processedMessage = messageService.processMessage(msgString)
 
         // ✅ Enviar el objeto directamente, NO como string JSON
         io.emit(SOCKET_EVENTS.MESSAGE_RECEIVED, processedMessage)
